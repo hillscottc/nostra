@@ -1,6 +1,6 @@
 {
   "name": "nostra",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A fortune teller.",
   "main": "index.js",
   "scripts": {
