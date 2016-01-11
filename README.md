@@ -3,8 +3,7 @@
 Nostra
 =========
 
-A fortune teller.
-
+Generates random-ish fortune-teller text. 
 
 ## Installation
 
@@ -24,4 +23,8 @@ Components:
 - [Istanbul](http://gotwarlost.github.io/istanbul/) and [Coveralls](https://coveralls.io/) for code coverage.
 
     npm test
+    
+## Notes
+Adapted from Michael Sproul's python [Horoscope Generator](https://github.com/michaelsproul/bullshit). 
+
     
