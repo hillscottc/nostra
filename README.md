@@ -16,7 +16,6 @@ A fortune teller.
 
     var fortune = nostra.generate();
   
-
 ## Tests
 
 Components:
