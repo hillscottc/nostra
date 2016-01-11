@@ -1,0 +1,29 @@
+{
+  "name": "nostra",
+  "version": "0.0.1",
+  "description": "A fortune teller.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hillscottc/nostra.git"
+  },
+  "keywords": [
+    "fortune",
+    "horoscope",
+    "predict",
+    "future"
+  ],
+  "author": "Scott Hill <scott289@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hillscottc/nostra/issues"
+  },
+  "homepage": "https://github.com/hillscottc/nostra#readme",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4"
+  }
+}
