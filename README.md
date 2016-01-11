@@ -1,7 +1,9 @@
 Nostra
 =========
 
-A fortune teller
+A fortune teller.
+
+
 
 ## Installation
 
@@ -15,6 +17,8 @@ A fortune teller
   
 
 ## Tests
+
+Uses[Travis CI](https://travis-ci.org/) for continuous integration
 
     npm test
     
