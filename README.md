@@ -1,8 +1,9 @@
+[![Build Status](https://travis-ci.org/hillscottc/nostra.svg?branch=master)](https://travis-ci.org/hillscottc/nostra)
+
 Nostra
 =========
 
 A fortune teller.
-
 
 
 ## Installation
@@ -18,7 +19,10 @@ A fortune teller.
 
 ## Tests
 
-Uses[Travis CI](https://travis-ci.org/) for continuous integration
+Components:
+- [Mocha](https://mochajs.org/) JavaScript test framework.
+- [Travis CI](https://travis-ci.org/) for continuous integration.
+- [Istanbul](http://gotwarlost.github.io/istanbul/) and [Coveralls](https://coveralls.io/) for code coverage.
 
     npm test
     
