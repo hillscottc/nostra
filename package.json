@@ -30,6 +30,7 @@
     "mocha": "^2.3.4"
   },
   "dependencies": {
+    "dateformat": "^1.0.12",
     "debug": "^2.2.0"
   }
 }
