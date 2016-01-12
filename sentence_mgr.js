@@ -1,4 +1,5 @@
 var util = require('util'),
+    dateFormat = require('dateformat'),
     wordLib = require('./word_library'),
     nu = require('./nostra_utils');
 
@@ -97,8 +98,33 @@ function feeling(mood) {
 }
 
 
+/**
+ * Generate a random prediction sentence containing a date.
+ * @returns {*}
+ */
+function datePredict() {
+
+  var daysAhead = Math.floor(Math.random() * 5) + 2;
+
+  var day = new Date();
+  day.setDate(day.getDate() + daysAhead);
+  var monthStr = dateFormat(day, "mmmm");
+  var dayStr = dateFormat(day, "d");
+
+  var rnum = Math.floor(Math.random() * 10);
+  var str;
+  if (rnum <=4) {
+    str = util.format("%s %s will be an important day for you", monthStr, dayStr);
+  } else if (rnum <=7) {
+    str = util.format("Interesting things await you on %s %s", monthStr, dayStr);
+  } else {
+    str = util.format("The events of %s %s have the potential to change your life.", monthStr, dayStr);
+  }
+  return nu.sentenceCase(str);
+}
 
 module.exports.relationship = relationship;
 module.exports.encounter = encounter;
 module.exports.feeling = feeling;
+module.exports.datePredict = datePredict;
 

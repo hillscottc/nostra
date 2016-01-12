@@ -33,6 +33,9 @@ module.exports = {
     var num_s = Math.floor(Math.random() * 2) + 2;
     sentences = sentences.slice(0, num_s);
     sentences = sentences.join(" ");
+
+    sentences += " " + sentenceMgr.datePredict();
+
     debug(sentences);
     return sentences;
   }

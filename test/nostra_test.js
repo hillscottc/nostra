@@ -38,6 +38,12 @@ describe('sentence_mgr', function(){
     expect(results).to.have.length.of.at.least(2);
   });
 
+  it('datePredict', function(){
+    var results = sentenceMgr.datePredict();
+    //console.log(results);
+    expect(results).to.have.length.of.at.least(2);
+  });
+
 });
 
 
