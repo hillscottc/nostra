@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/hillscottc/nostra.svg?branch=master)](https://travis-ci.org/hillscottc/nostra)[![Coverage Status](https://coveralls.io/repos/hillscottc/nostra/badge.svg?branch=master&service=github)](https://coveralls.io/github/hillscottc/nostra?branch=master)
+[![NPM](https://nodei.co/npm/nostra.png)](https://nodei.co/npm/nostra/)[![Build Status](https://travis-ci.org/hillscottc/nostra.svg?branch=master)](https://travis-ci.org/hillscottc/nostra)[![Coverage Status](https://coveralls.io/repos/hillscottc/nostra/badge.svg?branch=master&service=github)](https://coveralls.io/github/hillscottc/nostra?branch=master)
 
 Nostra
 =========
