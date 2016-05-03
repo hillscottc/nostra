@@ -1,9 +1,8 @@
 "use strict";
-var debug = require('debug')('nostra'),
-    wordLib = require('./word_library'),
-    sentenceMgr = require('./sentence_mgr'),
-    nu = require('./nostra_utils');
-
+const debug = require('debug')('nostra');
+import wordLib  from './word_library';
+import sentenceMgr from './sentence_mgr';
+import * as nu from './nostra_utils';
 
 module.exports = {
 
@@ -11,16 +10,16 @@ module.exports = {
    * Generate a three to four sentence horoscope.
    * @returns {*[]}
    */
-  generate : function () {
-    var rnum = Math.floor(Math.random() * 10);
-    var mood;
+  generate : () => {
+    const rnum = Math.floor(Math.random() * 10);
+    let mood;
     if (rnum <= 8) {
       mood = "good";
     } else {
       mood = "bad";
     }
 
-    var sentences = [
+    let sentences = [
       sentenceMgr.feeling(mood),
       wordLib.warning(),
       nu.chooseFrom([sentenceMgr.relationship(mood), sentenceMgr.encounter(mood)])
@@ -30,7 +29,7 @@ module.exports = {
     sentences = nu.shuffle(sentences);
 
     // Select 2 or 3 sentences, to add to the random feel
-    var num_s = Math.floor(Math.random() * 2) + 2;
+    let num_s = Math.floor(Math.random() * 2) + 2;
     sentences = sentences.slice(0, num_s);
     sentences = sentences.join(" ");
 
@@ -41,5 +40,8 @@ module.exports = {
   }
 
 };
+
+
+
 
 

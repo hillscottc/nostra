@@ -1,9 +1,8 @@
 "use strict";
-var util = require('util'),
-    nu = require('./nostra_utils');
 
+import * as nu from './nostra_utils';
 
-var defLib = {
+const defLib = {
 
   "planets": ["Mercury", "Venus", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"],
 
@@ -178,10 +177,10 @@ var defLib = {
 
 
 function consolation() {
-  var rnum = Math.floor(Math.random() * 10);
+  const rnum = Math.floor(Math.random() * 10);
   if (rnum <= 6) {
-    var when = nu.chooseFrom(["shortly", "soon", "in due time"]);
-    return util.format(", but don't worry, everything will improve %s", when);
+    let when = nu.chooseFrom(["shortly", "soon", "in due time"]);
+    return `, but don't worry, everything will improve ${when}`;
   } else if (rnum <= 8) {
     return ", perhaps you need a change in your life?";
   } else {
@@ -191,11 +190,10 @@ function consolation() {
 
 
 function positiveIntensify() {
-  var rnum = Math.floor(Math.random() * 10);
-
+  const rnum = Math.floor(Math.random() * 10);
   if (rnum <= 5) {
-    var verb = nu.chooseFrom(["say", "do"]);
-    return util.format(", and there's nothing anyone can %s to stop you", verb);
+    let verb = nu.chooseFrom(["say", "do"]);
+    return `, and there's nothing anyone can ${verb} to stop you`;
   } else if (rnum <= 8) {
     return ", and you don't care who knows it";
   } else {
@@ -209,21 +207,18 @@ function positiveIntensify() {
  * @returns {*}
  */
 function warning() {
-  var sentence = "";
-
-  var avoidList = getWords("avoid_list");
-  var avoid = nu.chooseFrom(avoidList);
-
-  var rnum = Math.floor(Math.random() * 10);
-
+  let sentence = "";
+  const avoidList = getWords("avoid_list");
+  const avoid = nu.chooseFrom(avoidList);
+  const rnum = Math.floor(Math.random() * 10);
   if (rnum <= 3) {
-    sentence = util.format("You would be well advised to avoid %s", avoid);
+    sentence = `You would be well advised to avoid ${avoid}`;
   } else if (rnum <= 6){
-    sentence = util.format("Avoid %s at all costs", avoid);
+    sentence = `Avoid ${avoid} at all costs`;
   } else if (rnum <= 8) {
-    sentence = util.format("Steer clear of %s for a stress-free week", avoid);
+    sentence = `Steer clear of ${avoid} for a stress-free week`;
   } else {
-    sentence = util.format("For a peaceful week, avoid %s", avoid);
+    sentence = `For a peaceful week, avoid ${avoid}`;
   }
   return nu.sentenceCase(sentence);
 }
