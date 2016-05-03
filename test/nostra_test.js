@@ -1,16 +1,15 @@
-var assert = require('assert'),
-    chai = require('chai'),
-    expect = chai.expect,
-    wordLib = require('../word_library'),
-    sentenceMgr = require('../sentence_mgr'),
-    nostra = require('../index'),
-    nostraUtils = require('../nostra_utils');
+import chai from 'chai';
+import wordLib from '../dist/word_library';
+import sentenceMgr from '../dist/sentence_mgr';
+import nostra from '../dist/index';
+import nostraUtils from '../dist/nostra_utils';
 
+const expect = chai.expect;
 
 describe('nostra', function(){
 
-  it('generate', function(){
-    var results = nostra.generate();
+  it('generate', () => {
+    const results = nostra.generate();
     console.log(results);
     expect(results).to.have.length.of.at.least(2);
   });
@@ -18,28 +17,28 @@ describe('nostra', function(){
 });
 
 
-describe('sentence_mgr', function(){
+describe('sentence_mgr', () => {
 
-  it('relationship', function(){
-    var results = sentenceMgr.relationship('good');
+  it('relationship', () => {
+    const results = sentenceMgr.relationship('good');
     //console.log(results);
     expect(results).to.have.length.of.at.least(2);
   });
 
-  it('encounter', function(){
-    var results = sentenceMgr.encounter('good');
+  it('encounter', () => {
+    const results = sentenceMgr.encounter('good');
     //console.log(results);
     expect(results).to.have.length.of.at.least(2);
   });
 
-  it('feeling', function(){
-    var results = sentenceMgr.feeling('good');
+  it('feeling', () => {
+    const results = sentenceMgr.feeling('good');
     //console.log(results);
     expect(results).to.have.length.of.at.least(2);
   });
 
-  it('datePredict', function(){
-    var results = sentenceMgr.datePredict();
+  it('datePredict', () => {
+    const results = sentenceMgr.datePredict();
     //console.log(results);
     expect(results).to.have.length.of.at.least(2);
   });
@@ -47,41 +46,41 @@ describe('sentence_mgr', function(){
 });
 
 
-describe('wordLib', function(){
+describe('wordLib', () => {
 
-  it('getWords', function(){
-    var results = wordLib.getWords("planets");
-    var expected = ["Mercury", "Venus", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"];
+  it('getWords', () => {
+    const results = wordLib.getWords("planets");
+    const expected = ["Mercury", "Venus", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"];
     expect(JSON.stringify(results)).to.equal(JSON.stringify(expected));
   });
 
-  it('warning', function(){
-    var results = wordLib.warning();
+  it('warning', () => {
+    const results = wordLib.warning();
     //console.log(results);
     expect(results).to.have.length.of.at.least(2);
   });
 });
 
 
-describe('nostra utils', function(){
+describe('nostra utils', () => {
 
-  describe('sentenceCase', function(){
+  describe('sentenceCase', () => {
 
-    it('works', function(){
-      var results = nostraUtils.sentenceCase("hello world");
-      var expected = "Hello world.";
+    it('works', () => {
+      const results = nostraUtils.sentenceCase("hello world");
+      const expected = "Hello world.";
       expect(results).to.equal(expected);
     });
 
-    it('works when already punctuated', function(){
-      var results = nostraUtils.sentenceCase("hello world?");
-      var expected = "Hello world?";
+    it('works when already punctuated', () => {
+      const results = nostraUtils.sentenceCase("hello world?");
+      const expected = "Hello world?";
       expect(results).to.equal(expected);
     });
 
-    it('works excited', function(){
-      var results = nostraUtils.sentenceCase("hello world!", true);
-      var expected = "Hello world!";
+    it('works excited', () => {
+      const results = nostraUtils.sentenceCase("hello world!", true);
+      const expected = "Hello world!";
       expect(results).to.equal(expected);
     });
   })

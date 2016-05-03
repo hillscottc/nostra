@@ -5,6 +5,7 @@
  * @param sentence
  * @param exciting
  */
+
 function sentenceCase(sentence, exciting) {
 
   if (typeof exciting === 'undefined') {
@@ -23,7 +24,6 @@ function sentenceCase(sentence, exciting) {
   }
 }
 
-
 /**
  * Prefix with 'a' or 'an', as appropriate.
  * @param word
@@ -37,7 +37,6 @@ function an(word) {
   }
 }
 
-
 /**
  * A fast means to randomize short arrays.
  * http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
@@ -45,7 +44,9 @@ function an(word) {
  * @returns {*}
  */
 function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
+  var currentIndex = array.length,
+      temporaryValue = void 0,
+      randomIndex = void 0;
 
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
@@ -63,16 +64,14 @@ function shuffle(array) {
   return array;
 }
 
-
 /**
  * Return random item from a list.
  * @param items
  * @returns {*}
  */
 function chooseFrom(items) {
-  return items[Math.floor(Math.random() * items.length)]
+  return items[Math.floor(Math.random() * items.length)];
 }
-
 
 /**
  * Convert 'ing' endings to 'ed' endings.
@@ -81,12 +80,11 @@ function chooseFrom(items) {
  */
 function ingToEd(word) {
   if (word.slice(-3) === "ing") {
-    return word.slice(0, -3) + "ed"
+    return word.slice(0, -3) + "ed";
   } else {
-    return word
+    return word;
   }
 }
-
 
 module.exports.sentenceCase = sentenceCase;
 module.exports.shuffle = shuffle;
