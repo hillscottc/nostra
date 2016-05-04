@@ -27,6 +27,7 @@ Components:
 - See `build` and `prepublish` (which calls build) in the `scripts` section.
 - The .npmignore file contains the `src` dir -- it doesn't get published to npm.
 - The .gitignore file contains the `dist` dir -- it doesn't get saved to git
+- In `package.json`, `main` points to the file at './dist/index.js'
 
 ## ES6 -- Testing
 - The test file should call the files in the `dist` directory, not the `src`.
