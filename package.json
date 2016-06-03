@@ -1,6 +1,6 @@
 {
   "name": "nostra",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A fortune teller.",
   "main": "./dist/index.js",
   "scripts": {
