@@ -10,14 +10,10 @@ module.exports = {
    * Generate a three to four sentence horoscope.
    * @returns {*[]}
    */
-  generate : () => {
+  generate:() => {
     const rnum = Math.floor(Math.random() * 10);
-    let mood;
-    if (rnum <= 8) {
-      mood = "good";
-    } else {
-      mood = "bad";
-    }
+
+    const mood = (rnum <= 8) ?  "good" : "bad";
 
     let sentences = [
       sentenceMgr.feeling(mood),

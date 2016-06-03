@@ -5,11 +5,7 @@
  * @param sentence
  * @param exciting
  */
-function sentenceCase(sentence, exciting) {
-
-  if (typeof exciting === 'undefined') {
-    exciting = false;
-  }
+function sentenceCase(sentence, exciting = false) {
 
   // uppercase the first letter
   sentence = sentence[0].toUpperCase() + sentence.slice(1);

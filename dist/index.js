@@ -27,12 +27,8 @@ module.exports = {
    */
   generate: function generate() {
     var rnum = Math.floor(Math.random() * 10);
-    var mood = void 0;
-    if (rnum <= 8) {
-      mood = "good";
-    } else {
-      mood = "bad";
-    }
+
+    var mood = rnum <= 8 ? "good" : "bad";
 
     var sentences = [_sentence_mgr2.default.feeling(mood), _word_library2.default.warning(), nu.chooseFrom([_sentence_mgr2.default.relationship(mood), _sentence_mgr2.default.encounter(mood)])];
 

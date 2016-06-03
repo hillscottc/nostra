@@ -72,9 +72,12 @@ function encounter(mood) {
 
   var discussion = nu.chooseFrom(discussions);
   var rnum = Math.floor(Math.random() * 10);
+
+  var feeling = void 0;
+
   if (rnum < -5) {
-    var _feeling = nu.chooseFrom(feeling_nouns);
-    _feeling = "feelings of " + _feeling;
+    feeling = nu.chooseFrom(feeling_nouns);
+    feeling = "feelings of " + feeling;
   } else {
     feeling = nu.chooseFrom(emotive_nouns);
   }
@@ -105,14 +108,9 @@ function feeling(mood) {
   } else {
     ending = _word_library2.default.consolation();
   }
-  var exciting = false;
-  if (mood === "GOOD" && rnum <= 5) {
-    exciting = true;
-  }
+  var exciting = mood === "GOOD" && rnum <= 5;
   var are = nu.chooseFrom([" are", "'re"]);
-
   var sentence = 'You' + are + ' feeling ' + degree + ' ' + adj + ending;
-
   return nu.sentenceCase(sentence, exciting);
 }
 
@@ -121,7 +119,6 @@ function feeling(mood) {
  * @returns {*}
  */
 function datePredict() {
-
   var daysAhead = Math.floor(Math.random() * 5) + 2;
 
   var day = new Date();

@@ -18,11 +18,11 @@ function relationship(mood) {
     talk = "argument";
   }
 
-  let familiar_people = wordLib.getWords("familiar_people");
-  let conversation_topics = wordLib.getWords("conversation_topics");
+  const familiar_people = wordLib.getWords("familiar_people");
+  const conversation_topics = wordLib.getWords("conversation_topics");
 
-  let person = nu.chooseFrom(familiar_people);
-  let topic = nu.chooseFrom(conversation_topics);
+  const person = nu.chooseFrom(familiar_people);
+  const topic = nu.chooseFrom(conversation_topics);
 
   let sentence = `Your relationship with ${person} may be ${verb} `;
   sentence += `as the result of ${nu.an(talk)} about ${topic}`;
@@ -38,33 +38,36 @@ function relationship(mood) {
 function encounter(mood) {
 
   //Sentence 1: The meeting
-  let familiar_people = wordLib.getWords("familiar_people");
-  let strange_people = wordLib.getWords("strange_people");
-  let locations = wordLib.getWords("locations");
+  const familiar_people = wordLib.getWords("familiar_people");
+  const strange_people = wordLib.getWords("strange_people");
+  const locations = wordLib.getWords("locations");
 
-  let person = nu.chooseFrom(familiar_people.concat(strange_people));
+  const person = nu.chooseFrom(familiar_people.concat(strange_people));
   let location = nu.chooseFrom(wordLib.getWords("locations"));
-  let preposition = location[0];
+  const preposition = location[0];
   location = location[1];
 
-  let s1 = `You may meet ${person} ${preposition} ${location}.`;
+  const s1 = `You may meet ${person} ${preposition} ${location}.`;
 
   // Sentence 2: The discussion
   let discussions = wordLib.getWords("neutral_discussions");
   discussions.concat(wordLib.getWords(mood + "_discussions"));
-  let feeling_nouns = wordLib.getWords(mood + "_feeling_nouns");
-  let emotive_nouns = wordLib.getWords(mood + "_emotive_nouns");
-  let conversation_topics = wordLib.getWords("conversation_topics");
+  const feeling_nouns = wordLib.getWords(mood + "_feeling_nouns");
+  const emotive_nouns = wordLib.getWords(mood + "_emotive_nouns");
+  const conversation_topics = wordLib.getWords("conversation_topics");
 
-  let discussion = nu.chooseFrom(discussions);
-  let rnum = Math.floor(Math.random() * 10);
+  const discussion = nu.chooseFrom(discussions);
+  const rnum = Math.floor(Math.random() * 10);
+
+  let feeling;
+
   if (rnum <- 5) {
-    let feeling = nu.chooseFrom(feeling_nouns);
+    feeling = nu.chooseFrom(feeling_nouns);
     feeling = "feelings of " + feeling;
   } else {
     feeling = nu.chooseFrom(emotive_nouns);
   }
-  let topic = nu.chooseFrom(conversation_topics);
+  const topic = nu.chooseFrom(conversation_topics);
 
   let s2 = `${nu.an(discussion)} about ${topic} may lead to ${feeling}.`;
   s2 = nu.sentenceCase(s2);
@@ -78,27 +81,22 @@ function encounter(mood) {
  * @returns {*}
  */
 function feeling(mood) {
-  let rnum = Math.floor(Math.random() * 10);
-  let adjectives = wordLib.getWords(mood + "_feeling_adjs");
+  const rnum = Math.floor(Math.random() * 10);
+  const adjectives = wordLib.getWords(mood + "_feeling_adjs");
   //var degrees = getWords("neutral_degrees") + getWords(mood + "_degrees");
-  let degrees = wordLib.getWords("neutral_degrees").concat(wordLib.getWords(mood + "_degrees"));
+  const degrees = wordLib.getWords("neutral_degrees").concat(wordLib.getWords(mood + "_degrees"));
 
-  let adj = nu.ingToEd(nu.chooseFrom(adjectives));
-  let degree = nu.chooseFrom(degrees);
+  const adj = nu.ingToEd(nu.chooseFrom(adjectives));
+  const degree = nu.chooseFrom(degrees);
   let ending;
   if (mood === "good") {
     ending = wordLib.positiveIntensify();
   } else {
     ending = wordLib.consolation();
   }
-  let exciting = false;
-  if (mood === "GOOD" && rnum <= 5) {
-    exciting = true;
-  }
-  let are = nu.chooseFrom([" are", "'re"]);
-
-  let sentence = `You${are} feeling ${degree} ${adj}${ending}`;
-
+  const exciting = (mood === "GOOD" && rnum <= 5);
+  const are = nu.chooseFrom([" are", "'re"]);
+  const sentence = `You${are} feeling ${degree} ${adj}${ending}`;
   return nu.sentenceCase(sentence, exciting);
 }
 
@@ -108,15 +106,14 @@ function feeling(mood) {
  * @returns {*}
  */
 function datePredict() {
-
-  let daysAhead = Math.floor(Math.random() * 5) + 2;
+  const daysAhead = Math.floor(Math.random() * 5) + 2;
 
   let day = new Date();
   day.setDate(day.getDate() + daysAhead);
-  let monthStr = dateFormat(day, "mmmm");
-  let dayStr = dateFormat(day, "d");
+  const monthStr = dateFormat(day, "mmmm");
+  const dayStr = dateFormat(day, "d");
 
-  let rnum = Math.floor(Math.random() * 10);
+  const rnum = Math.floor(Math.random() * 10);
   let str;
   if (rnum <=4) {
     str = `${monthStr} ${dayStr} will be an important day for you`;
